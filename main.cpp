@@ -160,7 +160,7 @@ int main() {
             operations.push({'-', 0});
             continue;
         } else if (str.substr(0, 3) == "cos") {
-            if (str[3] == '*' || str[3] == '^' || str[3] == '+' || str[3] == '/') {
+            if (str[3] == '*' || str[3] == '^' || str[3] == '-' || str[3] == '+' || str[3] == '/') {
                 cout << "Error expression...";
                 return -11;
             }
@@ -180,7 +180,7 @@ int main() {
             str.erase(str.begin(), str.begin() + 3);
             continue;
         } else if (str.substr(0, 2) == "tg") {
-            if (str[2] == '*' || str[2] == '^' || str[2] == '+' || str[2] == '/') {
+            if (str[2] == '*' || str[2] == '^' || str[2] == '-'  || str[2] == '+' || str[2] == '/') {
                 cout << "Error expression...";
                 return -11;
             }
@@ -190,13 +190,17 @@ int main() {
             str.erase(str.begin(), str.begin() + 2);
             continue;
         } else if (str.substr(0, 3) == "ctg"){
+            if (str[3] == '*' || str[3] == '^' || str[3] == '+' || str[3] == '/') {
+                cout << "Error expression...";
+                return -11;
+            }
             n.xxx = 'g';
             n.value = 0;
             operations.push(n);
             str.erase(str.begin(), str.begin() + 3);
             continue;
         } else if (str.substr(0, 3) == "exp") {
-            if (str[1] == '*' || str[1] == '^' || str[1] == '-' || str[1] == '+' || str[1] == '/') {
+            if (str[3] == '*' || str[3] == '^' || str[3] == '-' || str[3] == '+' || str[3] == '/') {
                 cout << "Error expression...";
                 return -11;
             }
