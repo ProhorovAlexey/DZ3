@@ -160,7 +160,7 @@ int main() {
             operations.push({'-', 0});
             continue;
         } else if (str.substr(0, 3) == "cos") {
-            if (str[1] == '*' || str[1] == '^' || str[1] == '-' || str[1] == '+' || str[1] == '/') {
+            if (str[3] == '*' || str[3] == '^' || str[3] == '+' || str[3] == '/') {
                 cout << "Error expression...";
                 return -11;
             }
@@ -170,7 +170,7 @@ int main() {
             str.erase(str.begin(), str.begin() + 3);
             continue;
         } else if (str.substr(0, 3) == "sin") {
-            if (str[1] == '*' || str[1] == '^' || str[1] == '-' || str[1] == '+' || str[1] == '/') {
+            if (str[3] == '*' || str[3] == '^' || str[3] == '+' || str[3] == '/') {
                 cout << "Error expression...";
                 return -11;
             }
@@ -180,7 +180,7 @@ int main() {
             str.erase(str.begin(), str.begin() + 3);
             continue;
         } else if (str.substr(0, 2) == "tg") {
-            if (str[1] == '*' || str[1] == '^' || str[1] == '-' || str[1] == '+' || str[1] == '/') {
+            if (str[2] == '*' || str[2] == '^' || str[2] == '+' || str[2] == '/') {
                 cout << "Error expression...";
                 return -11;
             }
@@ -189,11 +189,7 @@ int main() {
             operations.push(n);
             str.erase(str.begin(), str.begin() + 2);
             continue;
-        } else if (str.substr(0, 3) == "ctg") {
-            if (str[1] == '*' || str[1] == '^' || str[1] == '-' || str[1] == '+' || str[1] == '/') {
-                cout << "Error expression...";
-                return -11;
-            }
+        } else if (str.substr(0, 3) == "ctg"){
             n.xxx = 'g';
             n.value = 0;
             operations.push(n);
@@ -210,11 +206,11 @@ int main() {
             str.erase(str.begin(), str.begin() + 3);
             continue;
         } else if (ch == '+' || ch == '*' || ch == '/' || ch == '(' || ch == '^') {
-            if (str[1] == '*' || str[1] == '^' || str[1] == '-' || str[1] == '+' || str[1] == '/') {
+            if (ch != '(' && str[1] == '*' || str[0] == '-' || str[1] == '^' || str[1] == '+' || str[1] == '/') {
                 cout << "Error expression...";
                 return -11;
             }
-            if (ch == '(' && str[1] == ')') {
+            if (ch == '(' && str[1] == ')' || str[1] == '*' || str[1] == '^' || str[1] == '+' || str[1] == '/') {
                 cout << "Error expression...";
                 return -11;
             }
